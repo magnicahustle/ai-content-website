@@ -10,7 +10,7 @@ def main():
     """
     content_dir = "/home/miki/AI/content"
     logs_dir = "/home/miki/AI/logs"
-    website_dir = "/home/miki/AI/website"
+    website_dir = "/home/miki/AI/docs"
     articles_dir = os.path.join(website_dir, "articles")
     
     # Create directories if they don't exist
@@ -28,24 +28,47 @@ def main():
         article_template = f.read()
 
     def generate_article_content():
-        # This function will eventually be replaced by an LLM call or web search
-        # For now, it returns a sample article.
-        return """
-Title: The Future of AI in Everyday Life
-
+        import random
+        articles = [
+            {
+                "title": "The Ethics of Artificial Intelligence",
+                "content": """
 Introduction:
-Artificial intelligence (AI) is no longer a futuristic concept; it's an integral part of our daily lives, constantly evolving and expanding its reach. From personalized recommendations to advanced medical diagnostics, AI's influence is pervasive. This article explores the exciting prospects of AI's continued integration into our routines and the potential transformations it promises.
+As artificial intelligence becomes more sophisticated, it's crucial to consider the ethical implications of its use. This article delves into the moral questions surrounding AI, from algorithmic bias to the potential for autonomous decision-making.
 
 Body:
-One of the most significant areas where AI is set to make further inroads is in personal assistance. Imagine AI systems that not only manage your schedule but also anticipate your needs, proactively suggest solutions, and seamlessly integrate with all your devices to create a truly intelligent environment. These systems will learn from your habits, preferences, and even your mood to offer unparalleled support.
+One of the most pressing ethical concerns is algorithmic bias. AI systems learn from data, and if that data reflects existing societal biases, the AI will perpetuate and even amplify them. This can have serious consequences in areas like hiring, criminal justice, and loan applications.
 
-Healthcare is another sector poised for a revolution. AI-powered diagnostics can analyze medical images and patient data with incredible accuracy, often surpassing human capabilities in early disease detection. Furthermore, AI can personalize treatment plans, predict patient responses to medication, and even assist in drug discovery, leading to more effective and tailored medical care.
+Another major ethical dilemma is the question of accountability. When an autonomous system makes a mistake, who is responsible? Is it the programmer, the owner of the system, or the AI itself? Establishing clear lines of responsibility is essential for building trust in AI.
 
-In the realm of transportation, autonomous vehicles are just the beginning. AI will optimize traffic flow in smart cities, manage complex logistics for delivery services, and even enhance public transport systems to be more efficient and responsive to demand. This will lead to reduced congestion, lower emissions, and safer travel for everyone.
+The development of autonomous weapons also raises profound ethical questions. The prospect of machines making life-or-death decisions without human intervention is a frightening one, and there is a growing movement to ban the development and use of such weapons.
 
 Conclusion:
-The future of AI in everyday life is bright and full of potential. While challenges such as ethical considerations and data privacy need to be addressed, the benefits of AI in enhancing convenience, improving health, and optimizing our environment are undeniable. As AI continues to advance, it will undoubtedly reshape our world in ways we are only just beginning to imagine.
+The ethical challenges of AI are complex and multifaceted. As we continue to develop and integrate AI into our society, it's essential to have a robust public discourse about these issues. By proactively addressing these challenges, we can ensure that AI is developed and used in a way that is beneficial to all of humanity.
 """
+            },
+            {
+                "title": "AI in Healthcare: A Revolution in Medicine",
+                "content": """
+Introduction:
+Artificial intelligence is poised to revolutionize the healthcare industry, from diagnostics and treatment to drug discovery and personalized medicine. This article explores the many ways in which AI is transforming healthcare and improving patient outcomes.
+
+Body:
+AI-powered diagnostic tools can analyze medical images like X-rays and MRIs with a level of accuracy that often surpasses human radiologists. This can lead to earlier and more accurate diagnoses of diseases like cancer and Alzheimer's.
+
+In the realm of treatment, AI can help doctors create personalized treatment plans based on a patient's genetic makeup, lifestyle, and other factors. This can lead to more effective treatments with fewer side effects.
+
+AI is also accelerating the process of drug discovery. By analyzing vast datasets of biological and chemical information, AI can identify promising new drug candidates much faster than traditional methods.
+
+Conclusion:
+The potential of AI to improve healthcare is immense. From more accurate diagnoses to personalized treatments and faster drug discovery, AI is helping to create a future where healthcare is more effective, efficient, and accessible to all.
+"""
+            }
+        ]
+        
+        chosen_article = random.choice(articles)
+        return f"Title: {chosen_article['title']}\n\n{chosen_article['content']}"
+
 
     # Generate content
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
