@@ -131,6 +131,10 @@ The potential of AI to improve healthcare is immense. From more accurate diagnos
         new_li.append(new_a)
         article_list.insert(0, new_li) # Add to the top of the list
 
+        # Limit the list to 10 articles
+        while len(article_list.find_all("li")) > 10:
+            article_list.find_all("li")[-1].decompose()
+
     with open(index_path, "w") as f:
         f.write(str(soup))
 
