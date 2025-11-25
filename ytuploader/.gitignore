@@ -1,0 +1,14 @@
+# Python
+*.pyc
+__pycache__/
+*.env
+
+# Google API credentials
+client_secret.json
+token.json
+
+# NAS mount point
+nas/
+
+# Virtual Environment
+.venv/
